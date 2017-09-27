@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Topshelf;
 using Owin;
 using Microsoft.Owin.Hosting;
+using Hangfire;
 
 namespace Scheduler
 {
@@ -19,11 +20,16 @@ namespace Scheduler
         }
 
         private IDisposable webApp;
-        public bool Start(string url)
+        public bool Start(SchedulerOptions options)
         {
             try
             {
-                webApp = WebApp.Start<Startup>(url);
+                webApp = WebApp.Start<Startup>(options.Url);
+                RecurringJob.AddOrUpdate(
+                    () => System.IO.File.CreateText(System.IO.Path.Combine(options.LoggingFolder,$"{DateTime.Now.Ticks}.txt")).Close(),
+                    Cron.Minutely()
+                );
+
                 return true;
             }
             catch (Exception ex)
@@ -31,8 +37,8 @@ namespace Scheduler
                 //_logger.Error($"Topshelf starting occured errors:{ex.ToString()}");
                 return false;
             }
-
         }
+        
 
         public bool Stop()
         {
