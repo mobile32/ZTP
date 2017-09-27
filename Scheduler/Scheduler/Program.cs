@@ -13,15 +13,17 @@ namespace Scheduler
     {
         static void Main(string[] args)
         {
-            HostFactory.New(c =>
+            HostFactory.Run(c =>
             {
                 c.UseAutofacContainer(AutofacContainer.Configure());
-                c.Service<SchedulerService>(s =>
+                c.Service<SchedulerService>(callback: s =>
                 {
                     s.ConstructUsingAutofacContainer();
                     s.WhenStarted((service, control) => service.Start());
                     s.WhenStopped((service, control) => service.Stop());
                 });
+                c.StartAutomatically();
+                c.RunAsLocalService();
             });
         }
     }

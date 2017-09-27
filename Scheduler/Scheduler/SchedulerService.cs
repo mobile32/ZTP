@@ -3,25 +3,50 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Topshelf;
+using Owin;
+using Microsoft.Owin.Hosting;
 
 namespace Scheduler
 {
     class SchedulerService
     {
-        public SchedulerService(IParser parser)
+        public SchedulerService(IParser p)
         {
 
         }
-        public bool Start()
+
+        private IDisposable webApp;
+        public bool Start(string url)
         {
-            return true;
+            try
+            {
+                webApp = WebApp.Start<Startup>(url);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //_logger.Error($"Topshelf starting occured errors:{ex.ToString()}");
+                return false;
+            }
+
         }
 
         public bool Stop()
         {
-            return true;
+            try
+            {
+                webApp?.Dispose();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //_logger.Error($"Topshelf stopping occured errors:{ex.ToString()}");
+                return false;
+            }
+
         }
     }
 }
