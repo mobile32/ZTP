@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Hangfire;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,9 +22,12 @@ namespace Scheduler
                 LoggingFolder = ConfigurationManager.AppSettings["LoggingFolder"],
             };
 
+            var container = AutofacContainer.Configure();
+            GlobalConfiguration.Configuration.UseAutofacActivator(container);
+
             HostFactory.Run(c =>
             {
-                c.UseAutofacContainer(AutofacContainer.Configure());
+                c.UseAutofacContainer(container);
                 c.Service<Scheduler>(callback: s =>
                 {
                     s.ConstructUsingAutofacContainer();

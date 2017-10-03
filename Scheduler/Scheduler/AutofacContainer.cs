@@ -16,8 +16,9 @@ namespace Scheduler
             var builder = new ContainerBuilder();
 
             builder.RegisterType<Scheduler>();
+            builder.RegisterType<SchedulerService>();
             builder.RegisterType<SchedulerService>().As<ISchedulerService>();
-            builder.RegisterType<MessageService>().As<IMessageService>();
+            builder.RegisterType<MessageService>().As<IMessageService>().SingleInstance();
             builder.RegisterModule<Mailer.MailerAutofacModule>();
             builder.RegisterModule<Parser.ParserAutofacModule>();
 

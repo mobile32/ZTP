@@ -11,6 +11,7 @@ using Microsoft.Owin.Hosting;
 using Hangfire;
 using Scheduler.Interfaces;
 using Scheduler.Implementations;
+using System.IO;
 
 namespace Scheduler
 {
@@ -40,10 +41,6 @@ namespace Scheduler
                 //_logger.Error($"Topshelf starting occured errors:{ex.ToString()}");
                 return false;
             }
-        }
-        void job()
-        {
-
         }
         public bool Stop()
         {

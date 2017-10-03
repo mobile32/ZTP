@@ -8,6 +8,6 @@ namespace Scheduler.Parser.Interfaces
 {
     public interface IParser
     {
-        IEnumerable<T> ParseItems<T>(IEnumerable<string> text) where T:class;
+        IEnumerable<T> ParseItems<T>(string header, IEnumerable<string> text) where T:class;
     }
 }

@@ -10,13 +10,14 @@ namespace Scheduler.Parser.Implementations
 {
     class CsvParser : IParser
     {
-        public IEnumerable<T> ParseItems<T>(IEnumerable<string> text) where T : class
+        public IEnumerable<T> ParseItems<T>(string header, IEnumerable<string> text) where T : class
         {
-            using (var stream = new StringReader(string.Join(Environment.NewLine, text)))
+            var joined = string.Join(Environment.NewLine, new[] { header }.Union(text));
+            using (var stream = new StringReader(joined))
             {
-                CsvHelper.CsvFactory f = new CsvHelper.CsvFactory();
-                var items = f.CreateReader(stream).GetRecords<T>().ToList();
-                return items;
+                var reader = new CsvHelper.CsvFactory().CreateReader(stream);
+                reader.Configuration.Delimiter = ";";
+                return reader.GetRecords<T>().ToList();
             }
         }
     }
