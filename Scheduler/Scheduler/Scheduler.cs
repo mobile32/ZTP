@@ -9,27 +9,30 @@ using Topshelf;
 using Owin;
 using Microsoft.Owin.Hosting;
 using Hangfire;
+using Scheduler.Interfaces;
+using Scheduler.Implementations;
 
 namespace Scheduler
 {
-    class SchedulerService
+    class Scheduler
     {
-        public SchedulerService(IParser p)
+        public Scheduler(ISchedulerService service)
         {
-
+            _service = service;
         }
-
         private IDisposable webApp;
+        private readonly ISchedulerService _service;
+
         public bool Start(SchedulerOptions options)
         {
             try
             {
+                _service.Init(options.InputFile);
                 webApp = WebApp.Start<Startup>(options.Url);
                 RecurringJob.AddOrUpdate(
-                    () => System.IO.File.CreateText(System.IO.Path.Combine(options.LoggingFolder,$"{DateTime.Now.Ticks}.txt")).Close(),
+                    () => _service.ProcessMailQueue(),
                     Cron.Minutely()
                 );
-
                 return true;
             }
             catch (Exception ex)
@@ -38,8 +41,10 @@ namespace Scheduler
                 return false;
             }
         }
-        
+        void job()
+        {
 
+        }
         public bool Stop()
         {
             try

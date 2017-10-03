@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Autofac.Core;
+using Scheduler.Mailer.Implementations;
+using Scheduler.Mailer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace Scheduler.Mailer
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<MailService>().As<IMailService>();
         }
     }
 }

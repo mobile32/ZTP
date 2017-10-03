@@ -24,12 +24,14 @@ namespace Scheduler
             HostFactory.Run(c =>
             {
                 c.UseAutofacContainer(AutofacContainer.Configure());
-                c.Service<SchedulerService>(callback: s =>
+                c.Service<Scheduler>(callback: s =>
                 {
                     s.ConstructUsingAutofacContainer();
                     s.WhenStarted((service, control) => service.Start(options));
                     s.WhenStopped((service, control) => service.Stop());
                 });
+                c.SetDisplayName("MailSchedulerService");
+                c.SetDescription("dupa123");
                 c.StartAutomatically();
                 c.RunAsLocalService();
             });

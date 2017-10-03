@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using Scheduler.Implementations;
+using Scheduler.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +15,9 @@ namespace Scheduler
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<SchedulerService>();
-
+            builder.RegisterType<Scheduler>();
+            builder.RegisterType<SchedulerService>().As<ISchedulerService>();
+            builder.RegisterType<MessageService>().As<IMessageService>();
             builder.RegisterModule<Mailer.MailerAutofacModule>();
             builder.RegisterModule<Parser.ParserAutofacModule>();
 
