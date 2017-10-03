@@ -27,7 +27,7 @@ namespace Scheduler.Implementations
 
         public void ProcessMailQueue()
         {
-            _messageList.GetMessages(5).ToList().ForEach(x=> _mailer.SendEmail(x.Address, x.Subject, x.Body));
+            _messageList.GetMessages().ToList().ForEach(x=> _mailer.SendEmail(x.Address, x.Subject, x.Body));
         }
     }
 }
