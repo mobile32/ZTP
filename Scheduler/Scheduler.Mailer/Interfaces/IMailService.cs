@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Scheduler.Mailer.Implementations
+namespace Scheduler.Mailer.Interfaces
 {
     public interface IMailService
     {
-        void SendEmail(string address, string subject, string body);
+        Task SendEmail(string address, string subject, string body);
     }
 }

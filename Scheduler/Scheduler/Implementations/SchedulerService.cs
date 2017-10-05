@@ -1,5 +1,6 @@
 ﻿using Scheduler.Interfaces;
 using Scheduler.Mailer.Implementations;
+using Scheduler.Mailer.Interfaces;
 using Scheduler.Parser.Interfaces;
 using System;
 using System.Collections.Generic;
