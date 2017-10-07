@@ -17,12 +17,14 @@ namespace Scheduler
 {
     class Scheduler
     {
-        public Scheduler(ISchedulerService service)
+        public Scheduler(ISchedulerService service, ILogger logger)
         {
             _service = service;
+            _logger = logger;
         }
         private IDisposable webApp;
         private readonly ISchedulerService _service;
+        private readonly ILogger _logger;
 
         public bool Start(SchedulerOptions options)
         {
@@ -38,7 +40,7 @@ namespace Scheduler
             }
             catch (Exception ex)
             {
-                //_logger.Error($"Topshelf starting occured errors:{ex.ToString()}");
+                _logger.Error($"Topshelf starting occured errors:{ex.ToString()}");
                 return false;
             }
         }
@@ -51,7 +53,7 @@ namespace Scheduler
             }
             catch (Exception ex)
             {
-                //_logger.Error($"Topshelf stopping occured errors:{ex.ToString()}");
+                _logger.Error($"Topshelf stopping occured errors:{ex.ToString()}");
                 return false;
             }
 

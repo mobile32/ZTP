@@ -109,7 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutofacContainer.cs" />
+    <Compile Include="Implementations\Logger.cs" />
     <Compile Include="Implementations\MessageService.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IMessageService.cs" />
     <Compile Include="Implementations\SchedulerService.cs" />
     <Compile Include="Interfaces\ISchedulerService.cs" />

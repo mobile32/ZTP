@@ -10,7 +10,7 @@ namespace Scheduler.Parser.Implementations
 {
     class CsvParser : IParser
     {
-        public IEnumerable<T> ParseItems<T>(string header, IEnumerable<string> text) where T : class
+        public ICollection<T> ParseItems<T>(string header, IEnumerable<string> text) where T : class
         {
             var joined = string.Join(Environment.NewLine, new[] { header }.Union(text));
             using (var stream = new StringReader(joined))

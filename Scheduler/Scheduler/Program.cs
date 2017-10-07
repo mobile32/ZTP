@@ -1,8 +1,10 @@
 ﻿using Autofac;
 using Hangfire;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,7 @@ namespace Scheduler
                 LoggingFolder = ConfigurationManager.AppSettings["LoggingFolder"],
             };
 
-            var container = AutofacContainer.Configure();
+            var container = AutofacContainer.Configure(options.LoggingFolder);
             GlobalConfiguration.Configuration.UseAutofacActivator(container);
 
             HostFactory.Run(c =>
@@ -31,7 +33,10 @@ namespace Scheduler
                 c.Service<Scheduler>(callback: s =>
                 {
                     s.ConstructUsingAutofacContainer();
-                    s.WhenStarted((service, control) => service.Start(options));
+                    s.WhenStarted((service, control) => {
+                        Log.Information("Service started...");
+                        return service.Start(options);
+                    });
                     s.WhenStopped((service, control) => service.Stop());
                 });
                 c.SetDisplayName("MailSchedulerService");
