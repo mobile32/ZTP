@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Pizza.BLL\Pizza.BLL.csproj" />
+    <ProjectReference Include="..\Pizza.BLL\Pizza.BLL.csproj" />
     <ProjectReference Include="..\Pizza.DAL\Pizza.DAL.csproj" />
   </ItemGroup>
 

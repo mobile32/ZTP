@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza", "Pizza\Pizza.csproj", "{2084D429-772C-4B07-A21E-2F569BE6B129}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.BLL", "..\Pizza.BLL\Pizza.BLL.csproj", "{C53CE665-7BF2-4EDA-BAC2-3838FF735C5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.BLL", "Pizza.BLL\Pizza.BLL.csproj", "{C53CE665-7BF2-4EDA-BAC2-3838FF735C5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza.DAL", "Pizza.DAL\Pizza.DAL.csproj", "{78825266-6279-45CA-9435-942560BB1B1F}"
 EndProject
