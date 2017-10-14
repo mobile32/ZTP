@@ -10,10 +10,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Autofac.Extensions.DependencyInjection;
-using Pizza.BLL;
-using Pizza.DAL;
+using PizzaStore.BLL;
+using PizzaStore.DAL;
 
-namespace Pizza
+namespace PizzaStore
 {
     public class Startup
     {
@@ -46,8 +46,19 @@ namespace Pizza
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
 
-            app.UseMvc();
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Pizza}/{action=Index}/{id?}");
+            });
         }
     }
 }

@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using MongoDB.Bson;
 
-namespace Pizza.DAL.Interfaces
+namespace PizzaStore.DAL.Interfaces
 {
     public interface IRepository<T>
     {
-        T GetById(int id);
+        T GetById(ObjectId id);
         IEnumerable<T> GetByQuery(Expression<Func<T,bool>> predicate);
         void Add(T item);
-        void Remove(T item);
+        void Remove(ObjectId id);
     }
 }

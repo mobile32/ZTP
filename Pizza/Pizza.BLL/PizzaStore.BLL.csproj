@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Pizza\Pizza.DAL\Pizza.DAL.csproj" />
+    <ProjectReference Include="..\Pizza.DAL\PizzaStore.DAL.csproj" />
   </ItemGroup>
 
 </Project>

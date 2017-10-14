@@ -1,35 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using Pizza.DAL.Interfaces;
+using PizzaStore.DAL.Interfaces;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
-namespace Pizza.DAL.Implementations
+namespace PizzaStore.DAL.Implementations
 {
     public class PizzaRepository: IPizzaRepository
     {
-        public PizzaRepository()
+        private readonly PizzaDbConnection db;
+
+        public IMongoCollection<Pizza> PizzaCollection { get; set; }
+
+        public PizzaRepository(PizzaDbConnection db)
         {
-            
+            this.db = db;
+            this.PizzaCollection = db.GetCollection<Pizza>("pizza");
         }
 
-        public Pizza GetById(int id)
+
+        public Pizza GetById(ObjectId id)
         {
-            throw new NotImplementedException();
+            return PizzaCollection.Find(x => x.Id == id).FirstOrDefault();
         }
 
         public IEnumerable<Pizza> GetByQuery(Expression<Func<Pizza, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return PizzaCollection.Find(predicate).ToList();
         }
 
         public void Add(Pizza item)
         {
-            throw new NotImplementedException();
+            PizzaCollection.InsertOne(item);
         }
 
-        public void Remove(Pizza item)
+        public void Remove(ObjectId id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<Pizza>.Filter.Where(x=> x.Id == id);
+            PizzaCollection.DeleteOne(filter);
         }
     }
 }

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Autofac;
-using Pizza.BLL.Implementations;
-using Pizza.BLL.Interfaces;
+using PizzaStore.BLL.Implementations;
+using PizzaStore.BLL.Interfaces;
 
-namespace Pizza.BLL
+namespace PizzaStore.BLL
 {
     public class PizzaBLLModule: Module
     {

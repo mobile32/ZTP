@@ -26,6 +26,7 @@ namespace Scheduler
 
             var container = AutofacContainer.Configure(options.LoggingFolder);
             GlobalConfiguration.Configuration.UseAutofacActivator(container);
+            var _logger = container.Resolve<Interfaces.ILogger>();
 
             HostFactory.Run(c =>
             {
@@ -34,7 +35,7 @@ namespace Scheduler
                 {
                     s.ConstructUsingAutofacContainer();
                     s.WhenStarted((service, control) => {
-                        Log.Information("Service started...");
+                        _logger.Information("Service started...");
                         return service.Start(options);
                     });
                     s.WhenStopped((service, control) => service.Stop());

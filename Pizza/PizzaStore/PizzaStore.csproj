@@ -5,13 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Autofac" Version="4.6.1" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.4.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Pizza.BLL\Pizza.BLL.csproj" />
-    <ProjectReference Include="..\Pizza.DAL\Pizza.DAL.csproj" />
+    <ProjectReference Include="..\Pizza.BLL\PizzaStore.BLL.csproj" />
+    <ProjectReference Include="..\Pizza.DAL\PizzaStore.DAL.csproj" />
   </ItemGroup>
 
 </Project>

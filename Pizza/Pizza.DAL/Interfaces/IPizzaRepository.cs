@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Pizza.DAL.Interfaces
+namespace PizzaStore.DAL.Interfaces
 {
     public interface IPizzaRepository: IRepository<Pizza>
     {

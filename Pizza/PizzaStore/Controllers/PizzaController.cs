@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Pizza.BLL.Interfaces;
+using PizzaStore.Models;
+using PizzaStore.BLL.Interfaces;
 
-namespace Pizza.Controllers
+namespace PizzaStore.Controllers
 {
-    [Route("api/[controller]")]
     public class PizzaController : Controller
     {
         private readonly IPizzaService _pizzaService;
 
         public PizzaController(IPizzaService pizzaService)
         {
-            _pizzaService = pizzaService;
+            this._pizzaService = pizzaService;
         }
-        [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Index()
         {
-            return new string[] { "value1", "value2" };
+            return View(_pizzaService.GetAll());
+        }
+
+        public void addpizza([FromBody] PizzaStore.DAL.Pizza pizza)
+        {
+
         }
     }
 }
