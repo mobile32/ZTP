@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using MongoDB.Bson;
+using PizzaStore.BLL.DTO;
 using PizzaStore.BLL.Interfaces;
 using PizzaStore.DAL;
 using PizzaStore.DAL.Interfaces;
@@ -22,17 +24,22 @@ namespace PizzaStore.BLL.Implementations
 
         }
 
-        public Pizza GetByLanguage(ObjectId id, string language)
+        public PizzaDTO GetByLanguage(ObjectId id, string language)
         {
             language = language ?? CultureInfo.CurrentCulture.Name;
             var translator = new TranslatorBuilder()
                 .AddLanguage(language)
                 .AddLanguage("en")
                 .AddLanguage("pl")
-                .AddLanguage("")
-                .Build();
-
-            return translator.GetTranslation(_pizzaRepository.GetById(id));
+                .Build2();
+            var langPizza = translator.GetTranslation(_pizzaRepository.GetById(id));
+            return new PizzaDTO
+            {
+                Name = langPizza?.Contents.FirstOrDefault()?.Name,
+                Description = langPizza?.Contents.FirstOrDefault()?.Description,
+                ImageUrl =  langPizza?.ImageUrl,
+                Price =  langPizza?.Price ?? 0
+            };
         }
 
         public IEnumerable<DAL.Pizza> GetAll()

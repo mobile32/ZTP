@@ -18,6 +18,7 @@ namespace PizzaStore.BLL.Implementations
 
         public Translator Build()
         {
+            _langs.Add("");
             Translator curr = null;
             for (int i = _langs.Count - 1; i >= 0; i--)
             {
@@ -33,6 +34,7 @@ namespace PizzaStore.BLL.Implementations
         private readonly string _lang;
 
         public Translator Next { get; set; }
+        public Lazy<Translator> NextLazy { get; set; }
 
         public Translator(string lang)
         {
