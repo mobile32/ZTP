@@ -11,6 +11,8 @@ namespace PizzaStore.BLL
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<LanguageSelector>().As<ILanguageSelector>();
+            builder.RegisterType<LanguageSelectorBuilder>().As<ILanguageSelectorBuilder>();
             builder.RegisterType<PizzaService>().As<IPizzaService>();
         }
     }

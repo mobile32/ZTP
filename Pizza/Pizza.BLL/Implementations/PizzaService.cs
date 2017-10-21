@@ -12,10 +12,12 @@ namespace PizzaStore.BLL.Implementations
     public class PizzaService : IPizzaService
     {
         private readonly IPizzaRepository _pizzaRepository;
+        private readonly ILanguageSelectorBuilder _builder;
 
-        public PizzaService(IPizzaRepository pizzaRepository)
+        public PizzaService(IPizzaRepository pizzaRepository, ILanguageSelectorBuilder builder)
         {
             _pizzaRepository = pizzaRepository;
+            _builder = builder;
         }
 
         public void DeletePizza(ObjectId id)
@@ -27,11 +29,11 @@ namespace PizzaStore.BLL.Implementations
         public PizzaDTO GetByLanguage(ObjectId id, string language)
         {
             language = language ?? CultureInfo.CurrentCulture.Name;
-            var translator = new TranslatorBuilder()
+            var translator = _builder
                 .AddLanguage(language)
                 .AddLanguage("en")
                 .AddLanguage("pl")
-                .Build2();
+                .Build();
             var langPizza = translator.GetTranslation(_pizzaRepository.GetById(id));
             return new PizzaDTO
             {
