@@ -5,4 +5,4 @@ https://1drv.ms/w/s!AnFsCoEybwM4lji0SMJ8ta9PQLQv
 
 
 actor model
-![schemat](https://ibb.co/g35EUb)
+![schemat](https://image.ibb.co/iVgXFG/Bez_tytu_u.png)
