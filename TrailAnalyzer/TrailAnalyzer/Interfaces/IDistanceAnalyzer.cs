@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TrailAnalyzer.Models;
 
 namespace TrailAnalyzer.Interfaces
 {
-    interface IDistanceAnalyzer
+    public interface IDistanceAnalyzer
     {
+        double TotalDistance(Trail trail);
+        double ClimbingDistance(Trail trail);
+        double DescentDistance(Trail trail);
+        double FlatDistance(Trail trail);
     }
 }
