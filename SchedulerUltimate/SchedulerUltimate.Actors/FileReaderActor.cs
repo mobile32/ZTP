@@ -1,5 +1,5 @@
 ﻿using Akka.Actor;
-using SchedulerUltimate.Messages;
+using SchedulerUltimate.Shared.Messages;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -14,13 +14,17 @@ namespace SchedulerUltimate.Actors
     {
         private string _filePath = "";
         private readonly ILogger _logger;
+        private readonly IActorRef _mailingActor; 
+        private readonly IActorRef _parser;
         private FileStream _fileStream;
         private StreamReader _fileStreamReader;
 
-        public FileReaderActor(ILogger logger)
+        public FileReaderActor(ILogger logger, IActorRef mailingActor)
         {
             NotInitialized();
             this._logger = logger;
+            _mailingActor = mailingActor;
+            _parser = Context.ActorOf(Props.Create<ParserActor>(_logger), "parserActor");
         }
 
         public void NotInitialized()
@@ -57,7 +61,7 @@ namespace SchedulerUltimate.Actors
         private void readFileToEnd(ReadFileToEnd obj)
         {
             var text = _fileStreamReader.ReadToEnd();
-            _logger.Information(text);
+            _parser.Tell(new ParseText(text), _mailingActor);
         }
 
     }
