@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerUltimate", "SchedulerUltimate\SchedulerUltimate.csproj", "{E02E755E-9719-45FB-9C37-25DDDAFA23E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerUltimate.Actors", "SchedulerUltimate.Actors\SchedulerUltimate.Actors.csproj", "{820CF40A-E5D0-4BCD-80CA-96FBFD4E9893}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerUltimate.Messages", "SchedulerUltimate.Messages\SchedulerUltimate.Messages.csproj", "{E2F5D137-D669-42AC-A36A-6F1141A93635}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerUltimate.Shared", "SchedulerUltimate.Messages\SchedulerUltimate.Shared.csproj", "{E2F5D137-D669-42AC-A36A-6F1141A93635}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

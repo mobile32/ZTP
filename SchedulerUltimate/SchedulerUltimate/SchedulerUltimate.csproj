@@ -103,9 +103,9 @@
       <Project>{820cf40a-e5d0-4bcd-80ca-96fbfd4e9893}</Project>
       <Name>SchedulerUltimate.Actors</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SchedulerUltimate.Messages\SchedulerUltimate.Messages.csproj">
+    <ProjectReference Include="..\SchedulerUltimate.Messages\SchedulerUltimate.Shared.csproj">
       <Project>{e2f5d137-d669-42ac-a36a-6f1141a93635}</Project>
-      <Name>SchedulerUltimate.Messages</Name>
+      <Name>SchedulerUltimate.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

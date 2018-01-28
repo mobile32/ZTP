@@ -1,6 +1,6 @@
 ﻿using Akka.Actor;
 using SchedulerUltimate.Actors;
-using SchedulerUltimate.Messages;
+using SchedulerUltimate.Shared.Messages;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -24,8 +24,8 @@ namespace SchedulerUltimate
             try
             {
                 _actorSystem = ActorSystem.Create("SchedulerUltimate");
-                var fsWatcherActor = _actorSystem.ActorOf(Props.Create<FileWatcherActor>(_logger),"fileWatcherActor");
-                fsWatcherActor.Tell(new InitFileWatcher(inputFile));
+                var mailingActor = _actorSystem.ActorOf(Props.Create<MailingActor>(_logger),"mailingActor");
+                mailingActor.Tell(new InitFileWatcher(inputFile));
                 return true;
             }
             catch (Exception ex)

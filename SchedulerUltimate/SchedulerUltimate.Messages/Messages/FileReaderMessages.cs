@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchedulerUltimate.Messages
+namespace SchedulerUltimate.Shared.Messages
 {
     public class InitializeReader
     {
