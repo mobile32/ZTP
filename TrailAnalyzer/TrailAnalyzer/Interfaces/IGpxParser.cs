@@ -5,7 +5,7 @@ using TrailAnalyzer.Models;
 
 namespace TrailAnalyzer.Interfaces
 {
-    interface IGpxParser
+    public interface IGpxParser
     {
         Trail ParseTrail(string gpxContent);
     }
