@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Blog.Write.Events
+namespace Blog.Write.Events.User
 {
     public class FailedLoginAttempt: IEvent
     {

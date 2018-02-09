@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Read", "Blog.Read\Blog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Write", "Blog.Write\Blog.Write.csproj", "{1F4D14AC-E53B-4E06-B29D-901ABDA697CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Context", "Blog.Context\Blog.Context.csproj", "{F85C027E-28C3-410B-8B7F-2AF3AA2CFE6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Context", "Blog.Context\Blog.Context.csproj", "{F85C027E-28C3-410B-8B7F-2AF3AA2CFE6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

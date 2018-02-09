@@ -1,10 +1,7 @@
 ﻿using Blog.Bus;
-using Blog.Write.Events;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Blog.Write.Events.Post;
 
-namespace Blog.Write.EventHandlers
+namespace Blog.Write.EventHandlers.Post
 {
     class AddedPostSecondHandler : IEventHandler<AddedPost>
     {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Blog.Write.Commands
+namespace Blog.Write.Commands.User
 {
     public class RegisterNewUser: ICommand
     {

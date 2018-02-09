@@ -1,10 +1,7 @@
 ﻿using Blog.Bus;
-using Blog.Write.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Blog.Write.Commands.Post;
 
-namespace Blog.Write.Handlers
+namespace Blog.Write.Handlers.Post
 {
     class EditPostHandler : IHandler<EditPost>
     {
