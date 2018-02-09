@@ -1,0 +1,18 @@
+﻿@model Blog.Read.Models.PostExcerptWithCategoryNameAndUsername
+
+<div class="post-preview">
+    <a href="@Url.Action("Details","Post", new { id = Model.Id })">
+        <h2 class="post-title">
+            @Model.Title
+        </h2>
+        <h3 class="post-subtitle">
+            @Model.Excerpt
+        </h3>
+    </a>
+    <p class="post-meta">
+        Dodano przez
+        <a href="#">@Model.UserName</a>
+        dnia @Model.PostDate.ToString("dd/MM/yyyy")
+    </p>
+</div>
+<hr>

@@ -4,13 +4,22 @@ using System.Text;
 
 namespace Blog.Read.Models
 {
-    public class PostExcerptWithCategoryNameAndUsername
+    public class PostWithComments
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Excerpt { get; set; }
+        public string Content { get; set; }
         public string CategoryName { get; set; }
         public string UserName { get; set; }
         public DateTime PostDate { get; set; }
+
+        public ICollection<PostComment> Comments { get; set; }
+    }
+
+    public class PostComment
+    {
+        public int Id { get; set; }
+        public string Author { get; set; }
+        public string Content { get; set; }
     }
 }
