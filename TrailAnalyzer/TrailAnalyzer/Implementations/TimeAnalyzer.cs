@@ -18,7 +18,7 @@ namespace TrailAnalyzer.Implementations
         {
             return trail.Points
                 .Select((t, i) => trail.Points[i + 1].Elevation - t.Elevation > 0 ?
-                    (trail.Points[i + 1].Time - t.Time) : new TimeSpan(0))
+                    (trail.Points[i + 1].Time - t.Time) : TimeSpan.FromSeconds(0))
                 .Sum(r => r.Seconds);
         }
 

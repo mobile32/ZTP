@@ -39,7 +39,7 @@ namespace SchedulerUltimate.Actors
                     return null;
                 }
             })
-            .Where(x => x != null).ToList();
+            .OfType<EmailMessage>().ToList();
             if (emails.Any())
             {
                 logger.Debug("Parsed items: " + emails.Count);
