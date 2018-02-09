@@ -15,20 +15,21 @@ namespace Blog.Bus
             _ctx = ctx;
         }
 
-        public void DispatchCommand<TCommand>(TCommand command) where TCommand: ICommand
+        public void DispatchCommand<TCommand>(TCommand command) where TCommand : ICommand
         {
+            var handlerType = typeof(IHandler<>).MakeGenericType(command.GetType());
+            object handler = null;
             try
             {
-                var handlerType = typeof(IHandler<>).MakeGenericType(command.GetType());
-                var handler = _ctx.Resolve(handlerType);
-                var executeCommandMethod = handler.GetType().GetMethod(nameof(IHandler<ICommand>.ExecuteCommand));
-                executeCommandMethod.Invoke(handler, new object[] { command });
+                handler = _ctx.Resolve(handlerType);
             }
-            catch (Exception e)
+            catch
             {
-                // log
-                Console.WriteLine(e.Message);
+                // nie ma handlera
+                return;
             }
+            var executeCommandMethod = handler.GetType().GetMethod(nameof(IHandler<ICommand>.ExecuteCommand));
+            executeCommandMethod.Invoke(handler, new object[] { command });
         }
     }
 }
