@@ -40,6 +40,9 @@ namespace Blog.Controllers
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
+
+            _commandBus.ProcessCommand(new EditPost());
+
             return View();
         }
     }

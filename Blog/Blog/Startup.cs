@@ -28,8 +28,11 @@ namespace Blog
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            var connString = Configuration.GetConnectionString("BlogContext");
+
+
             services.AddMvc();
-            //services.RegisterWriteSide(Configuration.GetConnectionString("BlogContext"));
+            services.RegisterWriteSide(connString);
 
             ContainerBuilder builder = new ContainerBuilder();
             builder.Populate(services);
@@ -37,8 +40,9 @@ namespace Blog
             builder.RegisterModule<ReadSideAutofacModule>();
             builder.RegisterModule<WriteSideAutofacModule>();
 
-            builder.Register(x=> {
-                var conn = new SqlConnection(@"Server =.\SQLEXPRESS; Database = BlogZTP; Integrated Security = true;");
+            builder.Register(x =>
+            {
+                var conn = new SqlConnection(connString);
                 conn.Open();
                 return conn;
             }).AsSelf().InstancePerLifetimeScope();

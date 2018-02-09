@@ -8,6 +8,8 @@ namespace Blog.Write.DAL
 {
     class BlogContext : DbContext
     {
+        public BlogContext(DbContextOptions options):base(options) {}
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
@@ -16,7 +18,7 @@ namespace Blog.Write.DAL
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=BlogZTP;Integrated Security=true;");
+            //optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=BlogZTP;Integrated Security=true;");
         }
     }
 }

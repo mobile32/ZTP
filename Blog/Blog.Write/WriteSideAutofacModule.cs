@@ -16,7 +16,7 @@ namespace Blog.Write
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<BlogContext>().AsSelf();
+            //builder.RegisterType<BlogContext>().AsSelf();
 
             builder.RegisterTypes
                     (
