@@ -9,9 +9,11 @@ namespace Blog.Write.Commands
         public string Content { get; private set; }
         public DateTime PostDate { get; private set; }
         public int CategoryId { get; private set; }
+        public int UserId { get; private set; }
 
-        public AddPost(int categoryId, string title, string content, DateTime postDate)
+        public AddPost(int categoryId, string title, string content, DateTime postDate, int userId)
         {
+            UserId = userId;
             CategoryId = categoryId;
             Title = title;
             Content = content;

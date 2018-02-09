@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Blog.Read.Models.PostWithCategoryName>
+﻿@model IEnumerable<Blog.Read.Models.PostWithCategoryNameAndUsername>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -101,7 +101,7 @@
         <ul>
             @foreach (var post in Model)
             {
-                <li>[@post.CategoryName] @post.Title</li>
+                <li>[@post.CategoryName] @post.Title by @post.UserName</li>
             }
         </ul>
     </div>

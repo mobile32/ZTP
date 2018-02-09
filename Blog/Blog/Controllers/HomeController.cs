@@ -31,8 +31,6 @@ namespace Blog.Controllers
         {
             ViewData["Message"] = "Your application description page.";
 
-            _commandBus.ProcessCommand(new AddPost(1, "Test", "Test content", DateTime.Now));
-
 
             return View();
         }

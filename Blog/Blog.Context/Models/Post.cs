@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Blog.Write.DAL.Models
+namespace Blog.Context.Models
 {
-    class Post
+    public class Post
     {
         [Key]
         public int Id { get; set; }
@@ -22,6 +22,10 @@ namespace Blog.Write.DAL.Models
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
+
+        [ForeignKey(nameof(User))]
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
     }

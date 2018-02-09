@@ -16,13 +16,15 @@ namespace Blog.Read
             _conn = conn;
         }
 
-        public IEnumerable<PostWithCategoryName> GetPostsForList(int page = 1, int pageSize = 20)
+        public IEnumerable<PostWithCategoryNameAndUsername> GetPostsForList(int page = 1, int pageSize = 20)
         {
             var start = (page - 1) * pageSize;
             CommandDefinition cmd = new CommandDefinition(@"
                                                 SELECT *
-                                                FROM ( SELECT ROW_NUMBER() OVER ( ORDER BY PostDate DESC) AS RowNum, p.*,c.CategoryName
-                                                 FROM Posts p inner join Categories c on p.CategoryId = c.Id
+                                                FROM ( SELECT ROW_NUMBER() OVER ( ORDER BY PostDate DESC) AS RowNum, p.*,c.CategoryName, u.UserName
+                                                 FROM Posts p 
+                                                    inner join Categories c on p.CategoryId = c.Id
+                                                    inner join Users u on p.UserId = u.Id
                                                  ) AS result
                                                 WHERE RowNum > @startItem
                                                  AND RowNum <= @endItem
@@ -33,7 +35,7 @@ namespace Blog.Read
                                                     endItem = start + pageSize
                                                 });
 
-            return _conn.Query<PostWithCategoryName>(cmd);
+            return _conn.Query<PostWithCategoryNameAndUsername>(cmd);
         }
     }
 }

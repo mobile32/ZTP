@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Blog.Bus;
+using Blog.Context;
 using Blog.Read;
 using Blog.Write;
 using Blog.Write.Commands;

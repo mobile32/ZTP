@@ -1,6 +1,7 @@
 ﻿using Blog.Bus;
+using Blog.Context;
+using Blog.Context.Models;
 using Blog.Write.Commands;
-using Blog.Write.DAL;
 using Blog.Write.Events;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Blog.Write.Handlers
 
         public void ExecuteCommand(AddPost cmd)
         {
-            var post = new DAL.Models.Post
+            var post = new Post
             {
                 Content = cmd.Content,
                 PostDate = cmd.PostDate,

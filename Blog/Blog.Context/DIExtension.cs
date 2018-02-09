@@ -1,11 +1,11 @@
-﻿using Blog.Write.DAL;
+﻿using Blog.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Blog.Write
+namespace Blog.Context
 {
     public static class DIExtension
     {

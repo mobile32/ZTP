@@ -7,6 +7,6 @@ namespace Blog.Read
 {
     public interface IPostsRepository
     {
-        IEnumerable<PostWithCategoryName> GetPostsForList(int page = 1, int pageSize = 20);
+        IEnumerable<PostWithCategoryNameAndUsername> GetPostsForList(int page = 1, int pageSize = 20);
     }
 }

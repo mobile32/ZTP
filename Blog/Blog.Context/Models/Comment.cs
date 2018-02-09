@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Blog.Write.DAL.Models
+namespace Blog.Context.Models
 {
-    class Comment
+    public class Comment
     {
         [Key]
         public int Id { get; set; }

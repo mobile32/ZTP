@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Blog.Bus;
 using Blog.Write.Commands;
-using Blog.Write.DAL;
 using Blog.Write.Handlers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
