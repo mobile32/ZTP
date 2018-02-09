@@ -27,21 +27,9 @@ namespace Blog.Controllers
                        );
         }
 
-        public IActionResult About(int id)
+        public IActionResult Details(int id)
         {
-            ViewData["Message"] = "Your application description page.";
-            var post = _postsRepo.Value.GetPostWithComments(id);
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            _commandBus.ProcessCommand(new EditPost());
-
-            return View();
+            return View(_postsRepo.Value.GetPostWithComments(id));
         }
     }
 }

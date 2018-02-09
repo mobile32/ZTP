@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Blog.Read.Models
 {
-    public class PostExcerptWithCategoryNameAndUsername
+    public class PostWithCategoryNameAndUsername
     {
         public int Id { get; set; }
         public string Title { get; set; }

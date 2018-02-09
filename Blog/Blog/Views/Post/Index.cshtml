@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Blog.Read.Models.PostWithCategoryNameAndUsername>
+@{
+    ViewBag.BannerImage = "/img/home-bg.jpg";
+    ViewBag.BannerHeader = "CQRS Blog";
+}
+
+@section BannerDescription{
+    Strona przygotowana na zajęcia ZTP
+}
+
+@foreach (var post in Model)
+{
+    Html.RenderPartial("_PostListItemPartial", post);
+}
+@if (Model.Count() == 0)
+{
+    <h3 class="text-center">Brak wpisów</h3>
+}

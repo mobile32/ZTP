@@ -1,0 +1,11 @@
+﻿@model Blog.Read.Models.PostWithComments
+@{
+    ViewBag.BannerImage = "/img/post-bg.jpg";
+    ViewBag.BannerHeader = Model.Title;
+}
+
+@section BannerDescription{
+    Dodano przez @Model.UserName dnia @Model.PostDate.ToString("dd/MM/yyyy")
+}
+
+@Html.Raw(Model.Content)

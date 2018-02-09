@@ -14,9 +14,6 @@ namespace Blog.Context.Models
         [MinLength(5)]
         public string Title { get; set; }
         [Required]
-        [MinLength(5)]
-        public string Description { get; set; }
-        [Required]
         [MinLength(20)]
         public string Content { get; set; }
         [Required]
