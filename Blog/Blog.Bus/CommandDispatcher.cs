@@ -29,7 +29,14 @@ namespace Blog.Bus
                 return;
             }
             var executeCommandMethod = handler.GetType().GetMethod(nameof(IHandler<ICommand>.ExecuteCommand));
-            executeCommandMethod.Invoke(handler, new object[] { command });
+            try
+            {
+                executeCommandMethod.Invoke(handler, new object[] { command });
+            }
+            catch (TargetInvocationException tie)
+            {
+                throw tie.InnerException;
+            }
         }
     }
 }

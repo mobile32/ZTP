@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Blog.ViewModels
+{
+    public class RegisterViewModel
+    {
+        [Required]
+        [Display(Name = "Nazwa użytkownika")]
+        public string Username { get; set; }
+
+        [Required]
+        [Display(Name = "Hasło")]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "To pole jest wymagane")]
+        [Display(Name = "Hasło")]
+        [Compare(nameof(Password),ErrorMessage = "Hasła się nie zgadzają")]
+        public string ConfirmPassword { get; set; }
+    }
+}

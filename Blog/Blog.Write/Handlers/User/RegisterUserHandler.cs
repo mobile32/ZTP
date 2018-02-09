@@ -1,6 +1,7 @@
 ﻿using Blog.Bus;
 using Blog.Context;
 using Blog.Write.Commands.User;
+using Blog.Write.Events.User;
 using Blog.Write.Exceptions;
 using System;
 using System.Linq;
