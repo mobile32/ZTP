@@ -1,7 +1,5 @@
-﻿using Blog.Read.Models;
-using System;
+﻿using Blog.Read.Models.Post;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Blog.Read
 {

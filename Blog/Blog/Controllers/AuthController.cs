@@ -1,4 +1,5 @@
 ﻿using Blog.Bus;
+using Blog.Extensions;
 using Blog.Services;
 using Blog.ViewModels;
 using Blog.Write.Commands.User;
@@ -25,6 +26,7 @@ namespace Blog.Controllers
             this.authService = authService;
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View(new LoginViewModel());
@@ -46,22 +48,22 @@ namespace Blog.Controllers
                     }
                     return RedirectToAction("Index", "Post");
                 }
-                catch (InvalidLoginException e)
+                catch (InvalidLoginException)
                 {
                     ModelState.AddModelError("Summary", "Nie ma takiego użytkownika");
                 }
-                catch (InvalidPasswordException e)
+                catch (InvalidPasswordException)
                 {
                     ModelState.AddModelError("Summary", "Złe hasło");
                 }
-                catch (UserNotActiveException e)
+                catch (UserNotActiveException)
                 {
                     ModelState.AddModelError("Summary", "Konto zablokowane");
                 }
             }
             return View(vm);
         }
-
+        [HttpGet]
         public IActionResult Register()
         {
             return View(new RegisterViewModel());
@@ -95,7 +97,8 @@ namespace Blog.Controllers
             return View(vm);
         }
 
-        private async Task<IActionResult> Logout()
+        [HttpPost]
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Post");

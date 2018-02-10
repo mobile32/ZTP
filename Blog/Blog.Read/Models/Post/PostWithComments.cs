@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Blog.Read.Models
+namespace Blog.Read.Models.Post
 {
     public class PostWithComments
     {

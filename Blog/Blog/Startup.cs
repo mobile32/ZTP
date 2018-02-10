@@ -37,7 +37,7 @@ namespace Blog
             services.RegisterWriteSide(connString);
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                    .AddCookie(options=> 
+                    .AddCookie(options =>
                     {
                         options.LoginPath = "/login";
                         options.LogoutPath = "/logout";
@@ -83,12 +83,17 @@ namespace Blog
                 routes.MapRoute(
                     name: "login",
                     template: "login",
-                    defaults: new { controller = "Auth", action="Login" });
+                    defaults: new { controller = "Auth", action = "Login" });
+
+                routes.MapRoute(
+                    name: "logout",
+                    template: "logout",
+                    defaults: new { controller = "Auth", action = "Logout" });
 
                 routes.MapRoute(
                     name: "register",
                     template: "register",
-                    defaults: new { controller = "Auth", action="Register" });
+                    defaults: new { controller = "Auth", action = "Register" });
 
                 routes.MapRoute(
                     name: "default",

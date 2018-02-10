@@ -15,6 +15,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-login">
                     <div class="panel-heading">
+                        <div class="row" style="margin-right: 0;"><a class="pull-right" href="/"><span class="glyphicon glyphicon-remove"></span></a></div>
                         <div class="row">
                             <div class="col-xs-6">
                                 <a href="#" class="active" id="login-form-link">Logowanie</a>
@@ -67,6 +68,6 @@
     </div>
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/jquery-validation/dist/jquery.validate.js"></script>
+    @Html.Partial("_ValidationScriptsPartial")
 </body>
 </html>

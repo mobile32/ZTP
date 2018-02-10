@@ -1,4 +1,5 @@
 ﻿using Blog.Bus;
+using Blog.Read;
 using Blog.Write.Commands.User;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -13,10 +14,12 @@ namespace Blog.Services
     public class AuthService
     {
         private readonly ICommandBus commandBus;
+        private readonly IUsersRepository usersRepository;
 
-        public AuthService(ICommandBus commandBus)
+        public AuthService(ICommandBus commandBus, IUsersRepository usersRepository)
         {
             this.commandBus = commandBus;
+            this.usersRepository = usersRepository;
         }
 
         public ClaimsIdentity Register(string username, string password, string confirmPassword)
@@ -29,7 +32,7 @@ namespace Blog.Services
         {
             commandBus.ProcessCommand(new Login(username, password));
 
-            var user = new { Username = "admin", Id = 1 };
+            var user = usersRepository.GetUser(username);
 
             var claims = new List<Claim>
                     {

@@ -1,0 +1,19 @@
+﻿@if (Context.User.Identity.IsAuthenticated)
+{
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboard">Panel administracyjny</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" onclick="$('#logout').submit()" href="#">Wyloguj (@Context.User.Identity.Name)</a>
+    </li>
+    <form method="post" id="logout" action="/logout" style="display:none;"></form>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" href="/login">Logowanie</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/register">Rejestracja</a>
+    </li>
+}
