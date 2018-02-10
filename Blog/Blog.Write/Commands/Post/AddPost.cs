@@ -1,7 +1,7 @@
-﻿using Blog.Bus;
-using System;
+﻿using System;
+using Blog.Bus;
 
-namespace Blog.Write.Commands.Post
+namespace Blog.Command.Commands.Post
 {
     public class AddPost: ICommand
     {

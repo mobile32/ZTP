@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog", "Blog\Blog.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Bus", "Blog.Bus\Blog.Bus.csproj", "{BBA9FCC2-4AE0-45D3-A7E1-56EB64B94E9F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Read", "Blog.Read\Blog.Read.csproj", "{49CFE41D-B499-4ACA-AE60-C276F3A193E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Query", "Blog.Read\Blog.Query.csproj", "{49CFE41D-B499-4ACA-AE60-C276F3A193E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Write", "Blog.Write\Blog.Write.csproj", "{1F4D14AC-E53B-4E06-B29D-901ABDA697CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Command", "Blog.Write\Blog.Command.csproj", "{1F4D14AC-E53B-4E06-B29D-901ABDA697CA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Context", "Blog.Context\Blog.Context.csproj", "{F85C027E-28C3-410B-8B7F-2AF3AA2CFE6D}"
 EndProject

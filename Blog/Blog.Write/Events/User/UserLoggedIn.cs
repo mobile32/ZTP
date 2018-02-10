@@ -1,9 +1,7 @@
-﻿using Blog.Bus;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using Blog.Bus;
 
-namespace Blog.Write.Events.User
+namespace Blog.Command.Events.User
 {
     class UserLoggedIn: IEvent
     {

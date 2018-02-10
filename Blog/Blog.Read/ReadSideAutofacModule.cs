@@ -1,9 +1,6 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Blog.Read
+namespace Blog.Query
 {
     public class ReadSideAutofacModule : Module
     {

@@ -2,8 +2,6 @@
 using Blog.Extensions;
 using Blog.Services;
 using Blog.ViewModels;
-using Blog.Write.Commands.User;
-using Blog.Write.Exceptions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Blog.Command.Exceptions;
 
 namespace Blog.Controllers
 {

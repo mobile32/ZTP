@@ -1,7 +1,7 @@
-﻿using Blog.Read.Models.Post;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Blog.Query.Models.Post;
 
-namespace Blog.Read
+namespace Blog.Query
 {
     public interface IPostsRepository
     {

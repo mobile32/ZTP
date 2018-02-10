@@ -1,9 +1,6 @@
 ﻿using Blog.Bus;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Blog.Write.Commands.User
+namespace Blog.Command.Commands.User
 {
     public class Login: ICommand
     {

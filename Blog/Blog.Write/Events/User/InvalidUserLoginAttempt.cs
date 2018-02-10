@@ -1,9 +1,6 @@
 ﻿using Blog.Bus;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Blog.Write.Events.User
+namespace Blog.Command.Events.User
 {
     class InvalidUserLoginAttempt: IEvent
     {

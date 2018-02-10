@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Blog.Read.Models.User
+﻿namespace Blog.Query.Models.User
 {
     public class UserInfo
     {

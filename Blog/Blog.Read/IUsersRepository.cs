@@ -1,9 +1,6 @@
-﻿using Blog.Read.Models.User;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Blog.Query.Models.User;
 
-namespace Blog.Read
+namespace Blog.Query
 {
     public interface IUsersRepository
     {

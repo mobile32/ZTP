@@ -1,7 +1,7 @@
 ﻿using Blog.Bus;
-using Blog.Write.Commands.Post;
+using Blog.Command.Commands.Post;
 
-namespace Blog.Write.Handlers.Post
+namespace Blog.Command.Handlers.Post
 {
     class EditPostHandler : IHandler<EditPost>
     {

@@ -1,12 +1,12 @@
-﻿using Blog.Bus;
-using Blog.Context;
-using Blog.Write.Commands.User;
-using Blog.Write.Events.User;
-using Blog.Write.Exceptions;
-using System;
+﻿using System;
 using System.Linq;
+using Blog.Bus;
+using Blog.Command.Commands.User;
+using Blog.Command.Events.User;
+using Blog.Command.Exceptions;
+using Blog.Context;
 
-namespace Blog.Write.Handlers.User
+namespace Blog.Command.Handlers.User
 {
     class LoginHandler : IHandler<Login>
     {

@@ -1,4 +1,5 @@
-﻿@model Blog.Read.Models.Post.PostWithCategoryNameAndUsername
+﻿@using Blog.Query.Models.Post
+@model Blog.Query.Models.Post.PostWithCategoryNameAndUsername
 
 <div class="post-preview">
     <a href="@Url.Action("Details","Post", new { id = Model.Id })">

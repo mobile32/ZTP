@@ -1,7 +1,7 @@
-﻿using Blog.Bus;
-using System;
+﻿using System;
+using Blog.Bus;
 
-namespace Blog.Write.Events.Post
+namespace Blog.Command.Events.Post
 {
     public class AddedPost: IEvent
     {

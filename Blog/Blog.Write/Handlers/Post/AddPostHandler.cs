@@ -1,11 +1,10 @@
 ﻿using Blog.Bus;
+using Blog.Command.Commands.Post;
+using Blog.Command.Events.Post;
 using Blog.Context;
-using Blog.Write.Commands.Post;
-using Blog.Write.Events.Post;
-
 using PostEntity = Blog.Context.Models.Post;
 
-namespace Blog.Write.Handlers.Post
+namespace Blog.Command.Handlers.Post
 {
     class AddPostHandler : IHandler<AddPost>
     {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Blog.Read.Models.Post
+namespace Blog.Query.Models.Post
 {
     public class PostWithCategoryNameAndUsername
     {

@@ -1,15 +1,10 @@
-﻿using Autofac;
-using Blog.Bus;
-using Blog.Write.Commands;
-using Blog.Write.Handlers;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Autofac;
+using Blog.Bus;
 
-namespace Blog.Write
+namespace Blog.Command
 {
     public class WriteSideAutofacModule : Module
     {

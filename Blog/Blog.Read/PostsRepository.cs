@@ -1,11 +1,11 @@
-﻿using Blog.Read.Models.Post;
-using Dapper;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using Blog.Query.Models.Post;
+using Dapper;
 
-namespace Blog.Read
+namespace Blog.Query
 {
     class PostsRepository : IPostsRepository
     {

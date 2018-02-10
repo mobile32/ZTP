@@ -1,7 +1,7 @@
 ﻿using Blog.Bus;
-using Blog.Write.Events.User;
+using Blog.Command.Events.User;
 
-namespace Blog.Write.EventHandlers.User
+namespace Blog.Command.EventHandlers.User
 {
     class UserEventsHandler : IEventHandler<FailedLoginAttempt>,
                               IEventHandler<InvalidUserLoginAttempt>,

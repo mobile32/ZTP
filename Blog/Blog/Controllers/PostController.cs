@@ -4,8 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Blog.Bus;
-using Blog.Read;
-using Blog.Write.Commands;
+using Blog.Query;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Controllers
@@ -13,7 +12,7 @@ namespace Blog.Controllers
     public class PostController : Controller
     {
         private readonly Lazy<IPostsRepository> _postsRepo;
-        ICommandBus _commandBus;
+        private ICommandBus _commandBus;
 
         public PostController(ICommandBus commandBus, Lazy<IPostsRepository> postsRepo)
         {

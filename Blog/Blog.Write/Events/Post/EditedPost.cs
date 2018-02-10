@@ -1,7 +1,6 @@
 ﻿using Blog.Bus;
-using System;
 
-namespace Blog.Write.Events.Post
+namespace Blog.Command.Events.Post
 {
     public class EditedPost: IEvent
     {

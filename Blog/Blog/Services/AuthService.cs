@@ -1,6 +1,4 @@
 ﻿using Blog.Bus;
-using Blog.Read;
-using Blog.Write.Commands.User;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -8,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Blog.Command.Commands.User;
+using Blog.Query;
 
 namespace Blog.Services
 {

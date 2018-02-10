@@ -1,7 +1,7 @@
 ﻿using Blog.Bus;
-using Blog.Write.Events.Post;
+using Blog.Command.Events.Post;
 
-namespace Blog.Write.EventHandlers.Post
+namespace Blog.Command.EventHandlers.Post
 {
     class EditedPostHandler : IEventHandler<EditedPost>
     {

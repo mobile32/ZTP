@@ -1,7 +1,6 @@
 ﻿using Blog.Bus;
-using System;
 
-namespace Blog.Write.Commands.Post
+namespace Blog.Command.Commands.Post
 {
     public class EditPost : ICommand
     {

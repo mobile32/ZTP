@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blog.Read\Blog.Read.csproj" />
-    <ProjectReference Include="..\Blog.Write\Blog.Write.csproj" />
+    <ProjectReference Include="..\Blog.Read\Blog.Query.csproj" />
+    <ProjectReference Include="..\Blog.Write\Blog.Command.csproj" />
   </ItemGroup>
 
 </Project>

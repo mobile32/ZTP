@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Blog.Write
+namespace Blog.Command
 {
     class PasswordService
     {

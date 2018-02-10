@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using Blog.Read.Models.User;
+using Blog.Query.Models.User;
 using Dapper;
 
-namespace Blog.Read
+namespace Blog.Query
 {
     class UsersRepository : IUsersRepository
     {
