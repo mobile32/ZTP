@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Blog.Context\Blog.DAL.csproj" />
     <ProjectReference Include="..\Blog.Read\Blog.Query.csproj" />
     <ProjectReference Include="..\Blog.Write\Blog.Command.csproj" />
   </ItemGroup>

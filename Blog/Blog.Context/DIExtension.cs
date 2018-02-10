@@ -1,15 +1,11 @@
-﻿using Blog.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Blog.Context
+namespace Blog.DAL
 {
     public static class DIExtension
     {
-        public static void RegisterWriteSide(this IServiceCollection services, string connectionString)
+        public static void RegisterBlogContext(this IServiceCollection services, string connectionString)
         {
             services.AddDbContext<BlogContext>(x => x.UseSqlServer(connectionString));
         }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Blog.Context.Migrations
+namespace Blog.DAL.Migrations
 {
     [DbContext(typeof(BlogContext))]
     [Migration("20180209200812_salt")]

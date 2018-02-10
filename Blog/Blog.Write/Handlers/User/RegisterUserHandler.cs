@@ -4,7 +4,7 @@ using Blog.Bus;
 using Blog.Command.Commands.User;
 using Blog.Command.Events.User;
 using Blog.Command.Exceptions;
-using Blog.Context;
+using Blog.DAL;
 
 namespace Blog.Command.Handlers.User
 {
@@ -27,7 +27,7 @@ namespace Blog.Command.Handlers.User
             if (user != null) throw new UsernameTakenException();
 
             var salt = Guid.NewGuid().ToString().Replace("-", "");
-            var newUser = new Context.Models.User
+            var newUser = new DAL.Models.User
             {
                 Username = command.Username,
                 IsActive = true,

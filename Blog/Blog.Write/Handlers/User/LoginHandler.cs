@@ -4,7 +4,7 @@ using Blog.Bus;
 using Blog.Command.Commands.User;
 using Blog.Command.Events.User;
 using Blog.Command.Exceptions;
-using Blog.Context;
+using Blog.DAL;
 
 namespace Blog.Command.Handlers.User
 {

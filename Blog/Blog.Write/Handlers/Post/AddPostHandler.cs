@@ -1,8 +1,8 @@
 ﻿using Blog.Bus;
 using Blog.Command.Commands.Post;
 using Blog.Command.Events.Post;
-using Blog.Context;
-using PostEntity = Blog.Context.Models.Post;
+using Blog.DAL;
+using PostEntity = Blog.DAL.Models.Post;
 
 namespace Blog.Command.Handlers.Post
 {

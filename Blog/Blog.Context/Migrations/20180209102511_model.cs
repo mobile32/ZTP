@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Blog.Context.Migrations
+namespace Blog.DAL.Migrations
 {
     public partial class model : Migration
     {

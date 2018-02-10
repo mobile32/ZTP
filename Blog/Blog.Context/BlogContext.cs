@@ -1,10 +1,7 @@
-﻿using Blog.Context.Models;
+﻿using Blog.DAL.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Blog.Context
+namespace Blog.DAL
 {
     public class BlogContext : DbContext
     {

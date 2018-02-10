@@ -4,7 +4,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Blog.Bus;
 using Blog.Command;
-using Blog.Context;
+using Blog.DAL;
 using Blog.Query;
 using Blog.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -29,7 +29,7 @@ namespace Blog
             var connString = Configuration.GetConnectionString("BlogContext");
 
             services.AddMvc();
-            services.RegisterWriteSide(connString);
+            services.RegisterBlogContext(connString);
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                     .AddCookie(options =>
