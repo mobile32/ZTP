@@ -1,1 +1,79 @@
-﻿@RenderBody()
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Panel Administracyjny - CQRS Blog</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="/vendor/bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/admin/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/admin/css/skins/skin-blue.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="/" class="logo">
+                <span class="logo-mini"><b>C</b>B</span>
+                <span class="logo-lg"><b>CQRS</b> Blog</span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="/">Przejdź do bloga</a>
+                        </li>
+                        <li>
+                            <a onclick="$('#logout').submit()" href="#"><i class="fa fa-sign-out"></i> Wyloguj (@Context.User.Identity.Name)</a>
+                            <form method="post" id="logout" action="/logout" style="display:none;"></form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                    <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-link"></i> <span>Multilevel</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#">Link in level 2</a></li>
+                            <li><a href="#">Link in level 2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>
+                    @ViewBag.PageHeader
+                    <small>@ViewBag.PageDescription</small>
+                </h1>
+            </section>
+            <section class="content container-fluid">
+                @RenderBody()
+            </section>
+        </div>
+    </div>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/admin/js/adminlte.min.js"></script>
+</body>
+</html>
