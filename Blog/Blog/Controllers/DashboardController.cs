@@ -14,5 +14,20 @@ namespace Blog.Controllers
         {
             return View();
         }
+
+        public IActionResult Posts()
+        {
+            return View();
+        }
+
+        public IActionResult Comments()
+        {
+            return View();
+        }
+
+        public IActionResult Users()
+        {
+            return View();
+        }
     }
 }
