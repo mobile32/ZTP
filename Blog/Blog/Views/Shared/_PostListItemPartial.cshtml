@@ -1,5 +1,5 @@
 ﻿@using Blog.Query.Models.Post
-@model Blog.Query.Models.Post.PostWithCategoryNameAndUsername
+@model Blog.Query.Models.Post.PostWithCategoryAndUsername
 
 <div class="post-preview">
     <a href="@Url.Action("Details","Post", new { id = Model.Id })">
@@ -12,8 +12,8 @@
     </a>
     <p class="post-meta">
         Dodano przez
-        <a href="#">@Model.UserName</a>
-        dnia @Model.PostDate.ToString("dd/MM/yyyy")
+        <span style="color:black">@Model.UserName</span>
+        dnia @Model.PostDate.ToString("dd/MM/yyyy") w kategorii <a href="@Url.Action("Index","Post", new { id = Model.CategoryId})">@Model.CategoryName</a>
     </p>
 </div>
 <hr>

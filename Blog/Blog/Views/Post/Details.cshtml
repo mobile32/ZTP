@@ -5,11 +5,25 @@
     ViewBag.BannerHeader = Model.Title;
 }
 
-@section BannerDescription{
-    Dodano przez @Model.UserName dnia @Model.PostDate.ToString("dd/MM/yyyy")
+@section styles
+{
+    <style>
+        .desc-highlight {
+            color: #f3bfbf;
+        }
+    </style>
 }
 
-<div>
-    @Html.Raw(Model.Content)
-</div>
+@section BannerDescription{
+    Dodano przez <span class="desc-highlight">@Model.UserName</span> dnia @Model.PostDate.ToString("dd/MM/yyyy") w kategorii <a href="@Url.Action("Index","Post", new {id = Model.CategoryId})" class="desc-highlight">@Model.CategoryName</a>
+}
 
+<div class="col-lg-8 col-md-10 mx-auto">
+    <div>
+        @Html.Raw(Model.Content)
+    </div>
+
+
+
+
+</div>

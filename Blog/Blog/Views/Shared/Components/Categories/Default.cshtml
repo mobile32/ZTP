@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Blog.Query.Models.Category.CategoryWithPostCount>
+
+<h2>Kategorie</h2>
+<ul>
+    <li><a href="@Url.Action("Index","Post", new { categoryId = (int?)null})#content">Wszystkie (@Model.Sum(x=> x.PostCount))</a></li>
+    @foreach (var category in Model)
+    {
+        <li><a href="@Url.Action("Index", "Post", new {categoryId = category.Id, page = 1})#content">@category.CategoryName (@category.PostCount)</a></li>
+    }
+</ul>

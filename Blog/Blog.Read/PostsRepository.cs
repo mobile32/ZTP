@@ -20,6 +20,7 @@ namespace Blog.Query
         {
             CommandDefinition cmd = new CommandDefinition(@"
                                                SELECT p.[Id]
+                                                      ,c.Id as CategoryId
                                                       ,[CategoryName]
                                                       ,[Content]
                                                       ,[PostDate]
@@ -42,14 +43,14 @@ namespace Blog.Query
             return post;
         }
 
-        public IEnumerable<PostWithCategoryNameAndUsername> GetPostsForList(int page = 1, int pageSize = 20, int? categoryId = null)
+        public IEnumerable<PostWithCategoryAndUsername> GetPostsForList(int page = 1, int pageSize = 20, int? categoryId = null)
         {
             var start = (page - 1) * pageSize;
 
             var sql = new StringBuilder(@"
                         SELECT *
                         FROM ( SELECT ROW_NUMBER() OVER ( ORDER BY PostDate DESC) AS RowNum,
-                        p.Id, p.PostDate, p.Title,LEFT(p.Content, 150) + '...' as Excerpt,c.CategoryName, u.UserName
+                        p.Id, p.PostDate, p.Title,LEFT(p.Content, 150) + '...' as Excerpt,c.Id as CategoryId, c.CategoryName, u.UserName
                          FROM Posts p 
                             inner join Categories c on p.CategoryId = c.Id
                             inner join [Users] u on p.UserId = u.Id");
@@ -70,7 +71,7 @@ namespace Blog.Query
                                                     categoryId = categoryId
                                                 });
 
-            return _conn.Query<PostWithCategoryNameAndUsername>(cmd);
+            return _conn.Query<PostWithCategoryAndUsername>(cmd);
         }
     }
 }

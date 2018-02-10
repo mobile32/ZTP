@@ -23,18 +23,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Wszystkie kategorie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/?categoryId=1">Programowanie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/?categoryId=2">Gotowanie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/?categoryId=3">Ciekawostki</a>
-                    </li>
                     @Html.Partial("_UserPartial")
                 </ul>
             </div>
@@ -44,7 +32,7 @@
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="col-md-10 mx-auto">
                     <div class="site-heading">
                         <h1>@ViewBag.BannerHeader</h1>
                         <span class="subheading">@RenderSection("BannerDescription", required: false)</span>
@@ -56,16 +44,14 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                @RenderBody()
-            </div>
+            @RenderBody()
         </div>
     </div>
 
 
     <hr />
     <footer>
-        <div class="container">
+        <div class="container" id="content">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <ul class="list-inline text-center">

@@ -6,6 +6,6 @@ namespace Blog.Query
     public interface IPostsRepository
     {
         PostWithComments GetPostWithComments(int id);
-        IEnumerable<PostWithCategoryNameAndUsername> GetPostsForList(int page = 1, int pageSize = 20, int? categoryId = null);
+        IEnumerable<PostWithCategoryAndUsername> GetPostsForList(int page = 1, int pageSize = 20, int? categoryId = null);
     }
 }
