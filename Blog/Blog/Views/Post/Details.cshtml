@@ -6,7 +6,7 @@
 }
 
 @section styles
-{
+    {
     <style>
         .desc-highlight {
             color: #f3bfbf;
@@ -15,10 +15,18 @@
 }
 
 @section BannerDescription{
-    Dodano przez <span class="desc-highlight">@Model.UserName</span> dnia @Model.PostDate.ToString("dd/MM/yyyy") w kategorii <a href="@Url.Action("Index","Post", new {id = Model.CategoryId})" class="desc-highlight">@Model.CategoryName</a>
+    @Model.Description
 }
 
 <div class="col-lg-8 col-md-10 mx-auto">
+    <div>
+        <h2>@Model.Title</h2>
+        <h3>@Model.Description</h3>
+        <span>
+            Dodano przez <span class="desc-highlight">@Model.UserName</span> dnia @Model.PostDate.ToString("dd/MM/yyyy") w kategorii <a href="@Url.Action("Index", "Post", new {id = Model.CategoryId})" class="desc-highlight">@Model.CategoryName</a>
+        </span>
+    </div>
+    <hr/>
     <div>
         @Html.Raw(Model.Content)
     </div>

@@ -1,23 +1,24 @@
 ﻿using System;
+using System.ComponentModel;
 using Blog.Bus;
 
 namespace Blog.Command.Commands.Post
 {
     public class AddPost: ICommand
     {
-        public string Title { get; private set; }
-        public string Description { get; private set; }
-        public string Content { get; private set; }
-        public DateTime PostDate { get; private set; }
-        public int CategoryId { get; private set; }
-        public int UserId { get; private set; }
+        public string Title { get; }
+        public string Description { get; }
+        public string Content { get; }
+        public DateTime PostDate { get; }
+        public int CategoryId { get; }
+        public int UserId { get; }
 
         public AddPost(int categoryId, string title, string description, string content, DateTime postDate, int userId)
         {
             UserId = userId;
             CategoryId = categoryId;
-            Title = title;
             Description = description;
+            Title = title;
             Content = content;
             PostDate = postDate;
         }

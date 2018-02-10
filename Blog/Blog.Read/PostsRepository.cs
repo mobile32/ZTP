@@ -23,6 +23,7 @@ namespace Blog.Query
                                                       ,c.Id as CategoryId
                                                       ,[CategoryName]
                                                       ,[Content]
+                                                      ,[Description]
                                                       ,[PostDate]
                                                       ,[Title]
                                                       ,[UserName]
@@ -50,7 +51,7 @@ namespace Blog.Query
             var sql = new StringBuilder(@"
                         SELECT *
                         FROM ( SELECT ROW_NUMBER() OVER ( ORDER BY PostDate DESC) AS RowNum,
-                        p.Id, p.PostDate, p.Title,LEFT(p.Content, 150) + '...' as Excerpt,c.Id as CategoryId, c.CategoryName, u.UserName
+                        p.Id, p.PostDate, p.Title,p.Description,c.Id as CategoryId, c.CategoryName, u.UserName
                          FROM Posts p 
                             inner join Categories c on p.CategoryId = c.Id
                             inner join [Users] u on p.UserId = u.Id");

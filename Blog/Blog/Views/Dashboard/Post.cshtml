@@ -1,0 +1,37 @@
+﻿@model Blog.ViewModels.PostVM
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section styles{
+    <script src="/vendor/ckeditor/ckeditor.js"></script>
+}
+
+@section scripts{
+    <script src="/admin/js/editor.js"></script>
+    <script>
+        $(function() {
+            initEditor();
+            $("form").submit(function() {
+                $("#@Html.IdFor(x=> x.Content)").val(CKEDITOR.instances.editor.getData());
+            });
+        })
+    </script>
+}
+    <form asp-action="CreatePost" method="post">
+        <input asp-for="Id" type="hidden"/>
+        <input asp-for="CategoryId" type="text" class="form-control" />
+        <input asp-for="Title" type="text" class="form-control" />
+        <input asp-for="Content" type="hidden" />
+        <button id="save">Save</button>
+    </form>
+
+<div class="grid-container">
+    <div class="grid-width-100">
+        <textarea id="editor">
+        <h1>Hello world!</h1>
+        <p>I'm an instance of <a href="https://ckeditor.com">CKEditor</a>.</p>
+        </textarea>
+    </div>
+</div>
+

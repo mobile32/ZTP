@@ -14,6 +14,9 @@ namespace Blog.DAL.Models
         public string Title { get; set; }
         [Required]
         [MinLength(20)]
+        public string Description { get; set; }
+        [Required]
+        [MinLength(20)]
         public string Content { get; set; }
         [Required]
         public DateTime PostDate { get; set; }

@@ -23,13 +23,14 @@ namespace Blog.Command.Handlers.Post
             {
                 Content = cmd.Content,
                 PostDate = cmd.PostDate,
+                Description = cmd.Description,
                 Title = cmd.Title,
                 CategoryId = cmd.CategoryId
             };
             _db.Posts.Add(post);
             _db.SaveChanges();
 
-            _eventBus.PublishEvent(new AddedPost(post.Id, cmd.Title, cmd.Title, cmd.PostDate));
+            _eventBus.PublishEvent(new AddedPost(post.Id, cmd.Title, cmd.Description, cmd.Content, cmd.PostDate));
         }
     }
 }

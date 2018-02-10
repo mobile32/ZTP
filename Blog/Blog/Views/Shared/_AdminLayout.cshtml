@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/admin/css/skins/skin-blue.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    @RenderSection("styles", false)
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -65,5 +66,6 @@
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/admin/js/adminlte.min.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>

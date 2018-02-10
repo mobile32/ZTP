@@ -6,7 +6,7 @@ namespace Blog.Query.Models.Post
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Excerpt { get; set; }
+        public string Description { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string UserName { get; set; }
