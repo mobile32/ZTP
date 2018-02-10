@@ -25,7 +25,8 @@ namespace Blog.Command.Handlers.Post
                 PostDate = cmd.PostDate,
                 Description = cmd.Description,
                 Title = cmd.Title,
-                CategoryId = cmd.CategoryId
+                CategoryId = cmd.CategoryId,
+                UserId = cmd.UserId
             };
             _db.Posts.Add(post);
             _db.SaveChanges();

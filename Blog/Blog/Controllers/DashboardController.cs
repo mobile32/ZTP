@@ -40,7 +40,7 @@ namespace Blog.Controllers
         public IActionResult CreatePost(PostVM post)
         {
             _commandBus.ProcessCommand(new AddPost(post.CategoryId,post.Title, post.Description, post.Content.Replace("\r","").Replace("\n","<br />"),DateTime.Now,HttpContext.User.GetUserId().Value));
-            return View("Post");
+            return RedirectToAction("Posts");
         }
 
         public IActionResult Comments()
