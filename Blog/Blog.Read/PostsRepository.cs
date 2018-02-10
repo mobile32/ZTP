@@ -62,7 +62,7 @@ namespace Blog.Query
             sql.AppendLine(@") AS result
                              WHERE RowNum > @startItem
                              AND RowNum <= @endItem
-                             ORDER BY RowNum DESC");
+                             ORDER BY PostDate DESC");
 
             CommandDefinition cmd = new CommandDefinition(sql.ToString(),
                                                 new
@@ -73,6 +73,25 @@ namespace Blog.Query
                                                 });
 
             return _conn.Query<PostWithCategoryAndUsername>(cmd);
+        }
+
+        public Post GetPostById(int id)
+        {
+            CommandDefinition cmd = new CommandDefinition(@"
+                                               SELECT p.[Id]
+                                                      ,[Title]
+                                                      ,[Description]
+                                                      ,[Content]
+                                                      ,[PostDate]
+                                                      ,[CategoryId]
+                                               FROM [dbo].[Posts] p
+                                               WHERE
+	                                                p.Id = @id",
+                new
+                {
+                    id
+                });
+            return _conn.Query<Post>(cmd).FirstOrDefault();
         }
     }
 }

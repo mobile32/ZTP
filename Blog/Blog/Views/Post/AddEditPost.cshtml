@@ -1,14 +1,15 @@
-﻿@model Blog.ViewModels.PostVM
+﻿@model Blog.Query.Models.Post.Post
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.PageHeader = "Dodaj nowy post";
 }
 
 @section styles{
-    <script src="/vendor/ckeditor/ckeditor.js"></script>
+    <script src="~/vendor/ckeditor/ckeditor.js"></script>
 }
 
 @section scripts{
-    <script src="/admin/js/editor.js"></script>
+    <script src="~/admin/js/editor.js"></script>
     <script>
         $(function() {
             initEditor();
@@ -18,11 +19,13 @@
         })
     </script>
 }
-<form asp-action="CreatePost" method="post">
+<form action="@Url.Action((string)ViewBag.Action)" method="post" class="form-horizontal">
     <input asp-for="Id" type="hidden" />
     <div class="form-group">
-        <label>Kategoria: </label>
-        <input asp-for="CategoryId" type="text" class="form-control" />
+        <label class="col-sm-2 control-label">Kategoria: </label>
+        <div class="col-sm-10">
+            <input asp-for="CategoryId" type="text" class="form-control" />
+        </div>
     </div>
     <div class="form-group">
         <label>Tytuł: </label>
@@ -41,7 +44,7 @@
        </textarea>
         </div>
     </div>
-    <br/>
+    <br />
     <button id="save" class="btn-lg pull-right btn btn-primary">Zapisz</button>
 </form>
 

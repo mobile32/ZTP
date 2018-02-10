@@ -31,18 +31,6 @@ namespace Blog.Controllers
             return View();
         }
 
-        public IActionResult CreatePost()
-        {
-            return View("Post",new PostVM());
-        }
-
-        [HttpPost]
-        public IActionResult CreatePost(PostVM post)
-        {
-            _commandBus.ProcessCommand(new AddPost(post.CategoryId,post.Title, post.Description, post.Content.Replace("\r","").Replace("\n","<br />"),DateTime.Now,HttpContext.User.GetUserId().Value));
-            return RedirectToAction("Posts");
-        }
-
         public IActionResult Comments()
         {
             return View();

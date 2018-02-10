@@ -1,10 +1,26 @@
 ﻿@model IEnumerable<Blog.Query.Models.Category.CategoryWithPostCount>
+@{
+    var cId = Context.Request.Query["categoryId"].ToString();
+    int categoryId = -1;
+    if (!string.IsNullOrWhiteSpace(cId))
+    {
+        int.TryParse(cId, out categoryId);
+    }
+    else
+    {
+        cId = null;
+    }
+}
 
 <h2>Kategorie</h2>
-<ul>
-    <li><a href="@Url.Action("Index","Post", new { categoryId = (int?)null})#content">Wszystkie (@Model.Sum(x=> x.PostCount))</a></li>
+<ul class="category-list">
+    <li class="@(cId == null ? "selected" : "")">
+        <a href="@Url.Action("Index","Post", new { categoryId = (int?)null})#content">Wszystkie (@Model.Sum(x => x.PostCount))</a>
+    </li>
     @foreach (var category in Model)
     {
-        <li><a href="@Url.Action("Index", "Post", new {categoryId = category.Id, page = 1})#content">@category.CategoryName (@category.PostCount)</a></li>
+        <li class="@(cId != null && categoryId == category.Id ? "selected" : "")">
+            <a href="@Url.Action("Index", "Post", new {categoryId = category.Id, page = 1})#content">@category.CategoryName (@category.PostCount)</a>
+        </li>
     }
 </ul>
