@@ -44,7 +44,7 @@ namespace Blog.Query
             return post;
         }
 
-        public IEnumerable<PostWithCategoryAndUsername> GetPostsForList(int page = 1, int pageSize = 20, int? categoryId = null)
+        public IEnumerable<PostWithCategoryAndUsername> GetPostsForViewing(int page = 1, int pageSize = 20, int? categoryId = null)
         {
             var start = (page - 1) * pageSize;
 
@@ -73,6 +73,11 @@ namespace Blog.Query
                                                 });
 
             return _conn.Query<PostWithCategoryAndUsername>(cmd);
+        }
+
+        public IEnumerable<PostWithCategoryAndUsername> GetPostsForDashboard()
+        {
+            return GetPostsForViewing(1, 1000000000);
         }
 
         public Post GetPostById(int id)

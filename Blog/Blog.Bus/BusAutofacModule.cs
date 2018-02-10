@@ -10,6 +10,7 @@ namespace Blog.Bus
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<EventStoreWriter>().As<IEventStoreWriter>().SingleInstance();
             builder.RegisterType<CommandDispatcher>().As<ICommandDispatcher>();
             builder.RegisterType<CommandBus>().As<ICommandBus>();
             builder.RegisterType<EventBus>().As<IEventBus>();

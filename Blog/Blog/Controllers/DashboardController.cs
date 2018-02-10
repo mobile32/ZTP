@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Blog.Bus;
 using Blog.Command.Commands.Post;
 using Blog.Extensions;
+using Blog.Query;
 using Blog.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,12 @@ namespace Blog.Controllers
     public class DashboardController : Controller
     {
         private readonly ICommandBus _commandBus;
+        private readonly IPostsRepository _postsRepository;
 
-        public DashboardController(ICommandBus commandBus)
+        public DashboardController(ICommandBus commandBus, IPostsRepository postsRepository)
         {
             _commandBus = commandBus;
+            _postsRepository = postsRepository;
         }
 
         public IActionResult Index()
@@ -27,6 +30,11 @@ namespace Blog.Controllers
         }
 
         public IActionResult Posts()
+        {
+            return View(_postsRepository.GetPostsForDashboard());
+        }
+
+        public IActionResult Categories()
         {
             return View();
         }

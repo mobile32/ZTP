@@ -28,5 +28,12 @@ namespace Blog.Query
                                     order by CategoryName
                                                     ").ToList();
         }
+
+        public ICollection<Category> GetCategories()
+        {
+            return _conn.Query<Category>(@"
+                                            select c.Id, c.CategoryName from Categories c order by c.CategoryName
+                                          ").ToList();
+        }
     }
 }

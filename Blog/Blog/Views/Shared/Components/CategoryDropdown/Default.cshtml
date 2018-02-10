@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Blog.Query.Models.Category.Category>
+@{
+    var selected = ViewBag.Value ?? Model.FirstOrDefault()?.Id ?? -1;
+}
+
+<select name="@ViewBag.Name" class="form-control">
+    @foreach (var c in Model)
+    {
+        if (c.Id == selected)
+        {
+            <option selected="selected" value="@c.Id">@c.CategoryName</option>
+        }
+        else
+        {
+            <option value="@c.Id">@c.CategoryName</option>
+        }
+    }
+</select>

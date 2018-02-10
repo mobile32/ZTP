@@ -4,6 +4,11 @@ using System.Text;
 
 namespace Blog.Bus
 {
+    public interface IEventStoreWriter
+    {
+        void StoreEvent<TEvent>(TEvent evt) where TEvent : IEvent;
+    }
+
     #region Command
     public interface ICommand { }
     public interface IHandler { }

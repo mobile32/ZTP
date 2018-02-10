@@ -6,5 +6,6 @@ namespace Blog.Query
     public interface ICategoriesRepository
     {
         ICollection<CategoryWithPostCount> GetCategoriesWithPostCounts();
+        ICollection<Category> GetCategories();
     }
 }

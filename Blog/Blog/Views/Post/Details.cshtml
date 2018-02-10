@@ -7,9 +7,27 @@
 
 @section styles
     {
+    <link href="~/css/comments.css" rel="stylesheet" />
     <style>
         .desc-highlight {
             color: #f3bfbf;
+        }
+
+        .comment-container {
+            padding: 15px;
+            border-top: 1px solid #888;
+            border-bottom: 1px solid #888;
+            margin-bottom: 5px;
+        }
+
+        form textarea {
+            resize: none;
+            height: 150px;
+            margin: 5px 0;
+        }
+
+        .delete-comment-link {
+            font-size: 0.8em;
         }
     </style>
 }
@@ -26,12 +44,42 @@
             Dodano przez <span class="desc-highlight">@Model.UserName</span> dnia @Model.PostDate.ToString("dd/MM/yyyy") w kategorii <a href="@Url.Action("Index", "Post", new {id = Model.CategoryId})" class="desc-highlight">@Model.CategoryName</a>
         </span>
     </div>
-    <hr/>
+    <hr />
     <div>
         @Html.Raw(Model.Content)
     </div>
-
-
-
-
+    <hr />
+    <h3>Komentarze (@Model.Comments.Count)</h3>
+    <hr />
+    @if (Model.Comments.Any())
+    {
+        foreach (var comment in Model.Comments)
+        {
+            Html.RenderPartial("_CommentPartial", comment);
+        }
+    }
+    else
+    {
+        <h4 class="text-center">Brak komentarzy</h4>
+    }
+    <hr />
+    @using (Html.BeginForm("Comment", "Post", new { id = Model.Id }))
+    {
+        <input required type="text" name="author" class="form-control" placeholder="Autor komentarza" />
+        <textarea required name="comment" class="form-control"></textarea>
+        <button type="submit" class="pull-right btn btn-sm btn-primary">Wyślij</button>
+    }
 </div>
+
+@section Scripts
+    {
+    <script>
+        $(function () {
+            $(".delete-comment-link").click(function() {
+                if (confirm("Czy na pewno chcesz usunąć ten komentarz?")) {
+                    $(this).closest("form").submit();
+                }
+            });
+        });
+    </script>
+}
